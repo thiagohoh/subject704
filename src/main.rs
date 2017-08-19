@@ -24,6 +24,16 @@ fn main() {
         .expect("Please type a number!");
 
 
+     let mut filename = String::new();
+     filename = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\map1".to_string();
+     let mut filer =String::new();
+     filer = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\map1".to_string();
+    let  mut maps = HashMap::new();
+    maps.insert(String::from("Room1"),filename);
+
+
+
+    //filerino(&maps.get("Room1").unwrap());
 
     if anw == 1{
 
@@ -33,24 +43,10 @@ fn main() {
 
         let mut ww = "1";
         map(ww);
+
+
+
     }
-
-
-
-
-    let mut filename = String::new();
-    filename = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\map1".to_string();
-
-
-
-
-
-
-
-
-
-
-
 
     let mut v: Vec<i32> = Vec::new();
     v.push(1);
@@ -82,9 +78,7 @@ fn main() {
 
 
 
-    let  mut maps = HashMap::new();
 
-    maps.insert(String::from("Room1"),filename);
 
     //println!("  - {:?}",maps.get("Room1"));
 
