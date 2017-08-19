@@ -28,6 +28,9 @@ fn main() {
     if anw == 1{
 
 
+        intro2();
+
+
         let mut ww = "1";
         map(ww);
     }
@@ -114,7 +117,28 @@ fn intro(){
 
 fn intro2(){
 
-    println!("");
+    println!("\t    =======================================");
+    println!("\t    =======================================");
+    println!("\t    =================ACT 1=================");
+    println!("\t    =======================================");
+    println!("\t    =======================================");
+
+    println!("╔=====================================================================================╗");
+    println!("║In a dark cold room no lights or sounds completely alone...                          ║");
+    println!("║...                                                                                  ║");
+    println!("║Several minutes pass by, a rather strange light iluminates in front of you.          ║");
+    println!("║It is a little hard to see, the light is too bright                                  ║");
+    println!("║but you can get a glimpse of what is upon the table.                                 ║");
+    println!("║...                                                                                  ║");
+    println!("║Voice - '' Subject 703 please stand up.''                                            ║");
+    println!("║Voice - '' ... ''                                                                    ║");
+    println!("║Voice - '' Subject 703 please stand up.''                                            ║");
+    println!("║Voice - '' In order to learn and fully understand human nature... ''                 ║");
+    println!("║Voice - '' We need to test what you as a species call 'luck'. ''                     ║");
+    println!("║Voice - '' Please grab the gun and play the game called Russian Roulett. ''          ║");
+    println!("║Voice - '' Please don't waste our time, you know how to play it. ''                  ║");
+    println!("╚=====================================================================================╝");
+
 }
 
 fn map(number: &str){
