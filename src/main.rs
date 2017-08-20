@@ -15,7 +15,6 @@ fn main() {
 
     intro();
 
-
     let mut anw = String::new();
     io::stdin().read_line(&mut anw)
         .expect("Failed to read line");
@@ -23,66 +22,26 @@ fn main() {
     let anw: u32 = anw.trim().parse()
         .expect("Please type a number!");
 
-
-     let mut filename = String::new();
-     filename = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\map1".to_string();
-
-     let mut filer =String::new();
-     filer = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\mapb".to_string();
-
-
-
-    let  mut maps = HashMap::new();
-    maps.insert(String::from("Room1"),filename);
-    maps.insert(String::from("RoomB"),filer);
-
-
-
     //filerino(&maps.get("Room1").unwrap());
 
-    if anw == 1{//start game
+    if anw == 1{//start game Map A
 
         intro2();// intro
         let mut ww = "1";
         map(ww);
 
+        play();
+
+
     }else{
         return ();
     }
 
-    let mut anw = String::new();
-    io::stdin().read_line(&mut anw)
-        .expect("Failed to read line");
-
-    let anw: u32 = anw.trim().parse()
-        .expect("Please type a number!");
-
-    match anw{
-        1 => filerino(&maps.get("RoomB").unwrap()),
-        _ =>  println!("Invalid "),
-
-
-    }
 
 
 
 
 
-
-
-    let mut v: Vec<i32> = Vec::new();
-    v.push(1);
-    let sero : Option<&i32> = v.get(0);
-    let third: &i32 = &v[0];
-
-   // println!("{}",v[0]);
-   // println!("{:?}",sero);
-   // println!("{}",third);
-
-    let mut s = String::new();
-    s ="こんにちは".to_string();
-    s.push_str("　アニメ");
-    //println!("{}",s);
 
 
 
@@ -99,13 +58,52 @@ fn main() {
     }
 
 
+}
 
 
 
-    //println!("  - {:?}",maps.get("Room1"));
+
+fn play(){
+
+
+    let mut filename = String::new();
+    filename = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\map1".to_string();
+
+    let mut filer =String::new();
+    filer = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\mapb".to_string();
+
+    let mut filer_c = String::new();
+    filer_c ="C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\mapc".to_string();
+
+
+    let  mut maps = HashMap::new();
+    maps.insert(String::from("Room1"),filename);
+    maps.insert(String::from("RoomB"),filer);
+
+
+
+    let mut anw = String::new();
+    io::stdin().read_line(&mut anw)
+        .expect("Failed to read line");
+
+    let anw: u32 = anw.trim().parse()
+        .expect("Please type a number!");
+
+    match anw{//Map B
+        1 => filerino(&maps.get("RoomB").unwrap()),
+        2 => filerino(&maps.get("RoomC").unwrap()),
+
+        _ =>  println!("Invalid "),
+
+
+    }
+
 
 
 }
+
+
+
 
 
 
