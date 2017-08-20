@@ -26,27 +26,49 @@ fn main() {
 
      let mut filename = String::new();
      filename = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\map1".to_string();
+
      let mut filer =String::new();
-     filer = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\map1".to_string();
+     filer = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\mapb".to_string();
+
+
+
     let  mut maps = HashMap::new();
     maps.insert(String::from("Room1"),filename);
+    maps.insert(String::from("RoomB"),filer);
 
 
 
     //filerino(&maps.get("Room1").unwrap());
 
-    if anw == 1{
+    if anw == 1{//start game
 
-
-        intro2();
-
-
+        intro2();// intro
         let mut ww = "1";
         map(ww);
 
+    }else{
+        return ();
+    }
+
+    let mut anw = String::new();
+    io::stdin().read_line(&mut anw)
+        .expect("Failed to read line");
+
+    let anw: u32 = anw.trim().parse()
+        .expect("Please type a number!");
+
+    match anw{
+        1 => filerino(&maps.get("RoomB").unwrap()),
+        _ =>  println!("Invalid "),
 
 
     }
+
+
+
+
+
+
 
     let mut v: Vec<i32> = Vec::new();
     v.push(1);
@@ -139,6 +161,8 @@ fn map(number: &str){
 
     let mut filename = String::new();
     filename = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\map1".to_string();
+
+
     match number{
 
         "1" => filerino(&filename),
