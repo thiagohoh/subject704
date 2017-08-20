@@ -75,10 +75,15 @@ fn play(){
     let mut filer_c = String::new();
     filer_c ="C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\mapc".to_string();
 
+    let mut filer_d = String::new();
+    filer_d ="C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\mapc".to_string();
+
 
     let  mut maps = HashMap::new();
     maps.insert(String::from("Room1"),filename);
     maps.insert(String::from("RoomB"),filer);
+    maps.insert(String::from("RoomC"),filer_c);
+    maps.insert(String::from("RoomD"),filer_d);
 
 
 
@@ -92,11 +97,14 @@ fn play(){
     match anw{//Map B
         1 => filerino(&maps.get("RoomB").unwrap()),
         2 => filerino(&maps.get("RoomC").unwrap()),
+        3 => filerino(&maps.get("RoomD").unwrap()),
 
         _ =>  println!("Invalid "),
-
-
     }
+
+
+
+
 
 
 
