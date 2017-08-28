@@ -2,16 +2,32 @@ use std::collections::HashMap;
 use std::fs::File;
 use std::io::prelude::*;
 use std::io;
-
-
+use std::thread::sleep;
+use std::time::{Duration, Instant};
+#[allow(dead_code)]
 struct User {
-    username: String,
-    sign_in_count: u64,
-    active: bool,
+
+    player_p: u32
+
 }
 
 
 fn main() {
+
+
+    let mut player_points = 3;
+
+    let mut player = User{
+
+         player_p: player_points
+};
+
+
+
+    let mut file_map_1_intro = String::new();
+    let mut file_map_2 = String::new();
+    file_map_1_intro = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\map_1_intro_704".to_string();
+    file_map_2 = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\map_2_704".to_string();
 
     intro();
 
@@ -27,10 +43,25 @@ fn main() {
     if anw == 1{//start game Map A
 
         intro2();// intro
+       // sleep(Duration::new(12, 0));
         let mut ww = "1";
-        map(ww);
+        map(ww);//map1
 
-        play();
+
+        play_intro();// Map B C D
+        //sleep(Duration::new(10, 0));
+
+
+        filerino(&file_map_1_intro);//704 intro
+
+        let mut anw = String::new();
+        io::stdin().read_line(&mut anw)
+        .expect("Failed to read line");
+
+        let anw: u32 = anw.trim().parse()
+        .expect("Please type a number!");
+
+
 
 
     }else{
@@ -38,24 +69,19 @@ fn main() {
     }
 
 
+    filerino(&file_map_2);//start act 2
+
+
+
+    let  mut maps:HashMap=  HashMap::new();
+
+    maps.insert(String::from("Room1"),file_map_1_intro);
+
+    play_act_2(&maps);
 
 
 
 
-
-
-
-    let mut scores = HashMap::new();
-
-    scores.insert(String::from("Blue"), 10);
-    scores.insert(String::from("Yellow"), 50);
-
-    let team_name = String::from("Blue");
-    let score = scores.get(&team_name);
-
-    for (key, value) in &scores {
-        //println!("{}: {}", key, value);
-    }
 
 
 }
@@ -63,7 +89,7 @@ fn main() {
 
 
 
-fn play(){
+fn play_intro(){
 
 
     let mut filename = String::new();
@@ -76,7 +102,7 @@ fn play(){
     filer_c ="C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\mapc".to_string();
 
     let mut filer_d = String::new();
-    filer_d ="C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\mapc".to_string();
+    filer_d ="C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\mapd".to_string();
 
 
     let  mut maps = HashMap::new();
@@ -102,16 +128,56 @@ fn play(){
         _ =>  println!("Invalid "),
     }
 
+    if anw == 1{
+
+        let mut anw = String::new();
+        io::stdin().read_line(&mut anw)
+            .expect("Failed to read line");
+
+        let anw: u32 = anw.trim().parse()
+            .expect("Please type a number!");
 
 
+        match anw{//Map B
 
+            1 => filerino(&maps.get("RoomC").unwrap()),
+            2 => filerino(&maps.get("RoomD").unwrap()),
 
+            _ =>  println!("Invalid "),
+        }
+
+    }else{
+        return();
+    }
 
 
 }
 
 
 
+
+fn play_act_2(&map :HashMap<std::string::String,String>){
+
+
+    let mut anw = String::new();
+    io::stdin().read_line(&mut anw)
+        .expect("Failed to read line");
+
+    let anw: u32 = anw.trim().parse()
+        .expect("Please type a number!");
+
+
+
+    match anw{
+        1 => {filerino(&map.get("Room1").unwrap());
+            println!("opa");
+
+        },
+        _=> return()
+    }
+
+
+}
 
 
 
@@ -148,7 +214,7 @@ fn intro2(){
     println!("╔=====================================================================================╗");
     println!("║In a dark cold room no lights or sounds completely alone...                          ║");
     println!("║...                                                                                  ║");
-    println!("║Several minutes pass by, a rather strange light iluminates in front of you.          ║");
+    println!("║Several minutes pass by, a rather strange light illuminates in front of you.         ║");
     println!("║It is a little hard to see, the light is too bright                                  ║");
     println!("║but you can get a glimpse of what is upon the table.                                 ║");
     println!("║...                                                                                  ║");
@@ -157,11 +223,25 @@ fn intro2(){
     println!("║Voice - '' Subject 703 please stand up.''                                            ║");
     println!("║Voice - '' In order to learn and fully understand human nature... ''                 ║");
     println!("║Voice - '' We need to test what you as a species call 'luck'. ''                     ║");
-    println!("║Voice - '' Please grab the gun and play the game called Russian Roulett. ''          ║");
+    println!("║Voice - '' Please grab the gun and play the game called Russian Roulette. ''         ║");
     println!("║Voice - '' Please don't waste our time, you know how to play it. ''                  ║");
     println!("╚=====================================================================================╝");
 
 }
+
+
+fn test(p_p: u32)->u32{
+
+    println!("{}",p_p);
+    p_p +1
+}
+
+
+
+
+
+
+
 
 fn map(number: &str){
 
