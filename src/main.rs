@@ -73,13 +73,9 @@ fn main() {
 
 
 
-    let  mut maps:HashMap=  HashMap::new();
+    let  mut maps=  HashMap::new();
 
     maps.insert(String::from("Room1"),file_map_1_intro);
-
-    play_act_2(&maps);
-
-
 
 
 
@@ -156,8 +152,17 @@ fn play_intro(){
 
 
 
-fn play_act_2(&map :HashMap<std::string::String,String>){
+fn play_act_2(playa :User){
 
+    let  mut maps=  HashMap::new();
+    let mut file_map_3 = String::new();
+    let mut file_map_3_dead = String::new();
+
+    file_map_3 = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\map_3_704".to_string();
+    file_map_3_dead = "C:\\Users\\Thiago\\IdeaProjects\\subject704\\src\\map_3_playagain".to_string();
+
+    maps.insert(String::from("Dead"),file_map_3);
+    maps.insert(String::from("Map 3"),file_map_3_dead);
 
     let mut anw = String::new();
     io::stdin().read_line(&mut anw)
@@ -169,13 +174,35 @@ fn play_act_2(&map :HashMap<std::string::String,String>){
 
 
     match anw{
-        1 => {filerino(&map.get("Room1").unwrap());
-            println!("opa");
-
+        1 => {
+            playa.player_p = 1;
+            filerino(&file_map_3_dead);
         },
+
+        2 =>{
+            playa.player_p = 2;
+            filerino(&file_map_3);
+        }
+        3 =>{
+            playa.player_p = 3;
+            filerino();
+        }
         _=> return()
     }
 
+
+}
+
+
+fn map_3_questions(){
+
+
+
+    match answ{
+
+
+
+    }
 
 }
 
