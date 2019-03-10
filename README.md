@@ -1,3 +1,4 @@
 # subject704
-Text based game
-First time using Rust.
+#Class Project.
+Text based game, first time using the Rust language
+12 hours project
